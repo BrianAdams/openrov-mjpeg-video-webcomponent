@@ -6,8 +6,7 @@
     "BrianAdams <brian@babastik.com>"
   ],
   "main": [
-    "mjpeg-video.html",
-    "fullscreen-api-polyfill.js"
+    "mjpeg-video.html"
   ],
   "keywords": [
     "Polymer",
