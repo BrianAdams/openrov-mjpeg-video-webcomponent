@@ -1,0 +1,23 @@
+{
+  "name": "MJPEG-video-component example app",
+  "version": "1.0.0",
+  "homepage": "https://github.com/BrianAdams/openrov-mjpeg-video-webcomponent",
+  "authors": [
+    "BrianAdams <brian@babastik.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "../",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "core-component-page": "Polymer/core-component-page#>=0.3.0 <1.0.0",
+    "mjpeg-video-webcomponent": "../#~1.0.0"
+  }
+}

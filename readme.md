@@ -21,7 +21,7 @@ Installation
 ---------
 
 ```
-bower install openrov-mjpeg-video-webcomponent
+bower install mjpeg-video-webcomponent
 ```
 
 Usage
@@ -45,8 +45,13 @@ The most obvious things this project needs support with:
 
 To setup a development environment:
 
+**please note: The bower install of the subcomponent will install one folder below so that the dependencies are at the
+same folder level of this project so that the relative paths to those dependencies work.**
+
 ```
 clone https://github.com/BrianAdams/openrov-mjpeg-video-webcomponent
-cd openrov-mjpeg-video-webcomponent/src
+cd openrov-mjpeg-video-webcomponent/example
 bower install
 ```
+go ahead and modify the index.html file to have the address of your video stream and load the page.  As you need to
+make changes, you can simply run bower install again to pull in your updates in to the example project for testing.

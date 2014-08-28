@@ -6,3 +6,5 @@ polymer/*
 core-component-page/*
 
 bower_components/*
+
+example/.bower_components/*
