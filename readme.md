@@ -55,3 +55,7 @@ bower install
 ```
 go ahead and modify the index.html file to have the address of your video stream and load the page.  As you need to
 make changes, you can simply run bower install again to pull in your updates in to the example project for testing.
+
+Attribution
+----------
+FullScreenImage By http://www.iconarchive.com/artist/dakirby309.html (IconArchive) [CC-BY-3.0 (http://creativecommons.org/licenses/by/3.0) or FAL], via Wikimedia Commons
