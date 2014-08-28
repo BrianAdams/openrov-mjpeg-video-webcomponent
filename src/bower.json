@@ -5,13 +5,21 @@
   "authors": [
     "BrianAdams <brian@babastik.com>"
   ],
+  "main": [
+    "mjpeg-video.html"
+  ],
+  "keywords": [
+    "Polymer",
+    "web-components"
+  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "example"
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#~0.3.5"

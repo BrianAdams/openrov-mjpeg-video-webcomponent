@@ -4,3 +4,5 @@ platform/*
 polymer/*
 
 core-component-page/*
+
+bower_components/*
