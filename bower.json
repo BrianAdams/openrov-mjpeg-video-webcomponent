@@ -1,6 +1,6 @@
 {
   "name": "openrov-mjpeg-video-webcomponent",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/BrianAdams/mjpeg-video-webcomponent",
   "authors": [
     "BrianAdams <brian@babastik.com>"
@@ -15,7 +15,7 @@
     "OpenROV",
     "video-player"
   ],
-  "license": "MIT",
+  "license": "GPLV3",
   "ignore": [
     "**/.*",
     "node_modules",
