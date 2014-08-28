@@ -1,7 +1,7 @@
 {
   "name": "openrov-mjpeg-video-webcomponent",
   "version": "0.0.0",
-  "homepage": "https://github.com/BrianAdams/openrov-nolagcamera",
+  "homepage": "https://github.com/BrianAdams/mjpeg-video-webcomponent",
   "authors": [
     "BrianAdams <brian@babastik.com>"
   ],
@@ -10,7 +10,10 @@
   ],
   "keywords": [
     "Polymer",
-    "web-components"
+    "web-components",
+    "mjpeg",
+    "OpenROV",
+    "video-player"
   ],
   "license": "MIT",
   "ignore": [
