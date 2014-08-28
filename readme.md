@@ -46,7 +46,7 @@ The most obvious things this project needs support with:
 To setup a development environment:
 
 ```
-clone https://github.com/BrianAdams/mjpeg-video-webcomponent
-cd mjpeg-video-webcomponent/src
+clone https://github.com/BrianAdams/openrov-mjpeg-video-webcomponent
+cd openrov-mjpeg-video-webcomponent/src
 bower install
 ```
