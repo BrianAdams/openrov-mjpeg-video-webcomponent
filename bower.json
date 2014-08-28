@@ -1,6 +1,6 @@
 {
   "name": "openrov-mjpeg-video-webcomponent",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/BrianAdams/mjpeg-video-webcomponent",
   "authors": [
     "BrianAdams <brian@babastik.com>"
