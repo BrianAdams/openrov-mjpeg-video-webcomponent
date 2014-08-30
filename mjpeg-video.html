@@ -1,9 +1,16 @@
 <link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="mjpeg-video" attributes="src novideoImageURL framespersecond fullscreenbtn"  noscript>
+<polymer-element name="mjpeg-video" attributes="src novideoImageURL framespersecond fullscreenbtn" noscript>
 <script src="fullscreen-api-polyfill.js"></script>
   <template>
-    <div id="videocontainer" style="{{styletodo}}" class="{{classtodo}}" on-hover>
+    <style>
+      :host {
+        display: block;
+        width: 320px;
+        height: 200px}
+    </style>
+    <!--apply-author-styles></apply-author-styles-->
+    <div id="videocontainer" style="display:block; height:100%; width:100%" on-hover>
       <img hidden="true" id="video1" src="" on-load="{{imagefailed}}"/>
       <img hidden="true" id="video2" src="" on-load="{{imagefailed}}"/>
       <img hidden?="{{isHidden}}" id="videomissing" src="{{novideoImageURL}}"/>
@@ -37,8 +44,10 @@
         var refcallback = callback
         this.videopainttimerId = setInterval(function () {
           var srcImg = self.srcImg;
-          var width = self.videocontainer.clientWidth;
-          var height = self.videocontainer.clientHeight;
+
+          var style = window.getComputedStyle(self.$['videocontainer'], null);
+          var width = parseInt(style.getPropertyValue("width"));
+          var height = parseInt(style.getPropertyValue("height"));
           self.canvas.width = width;
           self.canvas.height = height;
           var ctx = self.canvas.getContext('2d');
@@ -52,6 +61,7 @@
           }
           if (!self.isHidden) self.isHidden=true;
         }, 1000/self.framespersecond);  //only need to redraw at the framerate of source video
+        this.asyncFire('playing',this.$['video-canvas']);
       },
       fs_onHovered: function(){
     //    this.$['fs_btn'].style.opacity=1;
@@ -96,8 +106,6 @@
         this.$['video2'].attributes.src.value = this.src;
         this.srcImg = this.$['video1'];
         this.videocontainer = this.$['videocontainer'];
-        this.styletodo = this.style.cssText;
-        this.classtodo = this.className;
         this.videocheckId = setInterval(function() {
           var b1 = self.$['video1'];
           var b2 = self.$['video2'];
@@ -119,6 +127,9 @@
           self.restart();
         });
 
+      },
+      get videocanvas() {
+        return this.$['video-canvas'];
       }
 
     });

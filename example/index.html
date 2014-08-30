@@ -2,12 +2,12 @@
 <html>
   <head>
     <!-- 1. Load platform support before any code that touches the DOM. -->
-    <script src="bower_components/platform/platform.js"></script>
+    <script src=".bower_components/platform/platform.js"></script>
     <!-- 2. Load the component using an HTML Import -->
-    <link rel="import" href="../src/mjpeg-video.html">
+    <link rel="import" href=".bower_components/openrov-mjpeg-video-webcomponent/mjpeg-video.html">
   </head>
   <body>
     <!-- 3. Declare the element by its tag. -->
-    <mjpeg-video src='http://192.168.1.138:8090/?action=stream' style='width: 1280px; height:720px'></mjpeg-video>
+    <mjpeg-video src='http://192.168.1.138:8090/?action=stream'  border='1'></mjpeg-video>
   </body>
 </html>
