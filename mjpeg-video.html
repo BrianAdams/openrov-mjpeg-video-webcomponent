@@ -10,12 +10,12 @@
         height: 200px}
     </style>
     <!--apply-author-styles></apply-author-styles-->
-    <div id="videocontainer" style="display:block; height:100%; width:100%" on-hover>
+    <div id="videocontainer" style="display:block; height:100%; width:100%; position: relative;" on-hover>
       <img hidden="true" id="video1" src="" on-load="{{imagefailed}}"/>
       <img hidden="true" id="video2" src="" on-load="{{imagefailed}}"/>
       <img hidden?="{{isHidden}}" id="videomissing" src="{{novideoImageURL}}"/>
-      <img hidden?="{{!showMenu}}" id="fs_btn" on-click="{{fullscreen}}" style="position: fixed; height: 32px; width: 32px; bottom: 10px; right: 20px; opacity: .3; z-index: 999;" alt="FullScreen" src="{{fullscreenbtn}}" on-mouseenter='{{fs_onHovered}}' on-mouseleave='{{fs_onUnhovered}}'/>
-      <canvas hidden?="{{!isHidden}}" id='video-canvas' on-mouseover='{{onHovered}}' on-mouseout='{{onUnhovered}}'/>
+      <img hidden?="{{!showMenu}}" id="fs_btn" on-click="{{fullscreen}}" style="position: absolute; height: 32px; width: 32px; bottom: 10px; right: 20px; opacity: .3; z-index: 999;" alt="FullScreen" src="{{fullscreenbtn}}" on-mouseenter='{{fs_onHovered}}' on-mouseleave='{{fs_onUnhovered}}'/>
+      <canvas hidden?="{{!isHidden}}" id='video-canvas' on-mouseenter='{{onHovered}}' on-mouseleave='{{onUnhovered}}'/>
 
     </div>
   </template>
@@ -64,16 +64,39 @@
         this.asyncFire('playing',this.$['video-canvas']);
       },
       fs_onHovered: function(){
-    //    this.$['fs_btn'].style.opacity=1;
+        this.$['fs_btn'].style.opacity=1;
       },
       fs_onUnhovered: function(){
-    //    this.$['fs_btn'].style.opacity=.3;
+        this.$['fs_btn'].style.opacity=.3;
       },
       onHovered: function(){
         this.showMenu = true;
+        console.log("on");
       },
-      onUnhovered: function(){
-        this.showMenu = false;
+      onUnhovered: function(event){
+
+       var target = this.$['fs_btn'];
+       var mouse_over_element;  //What the mouse is currently over...
+       //So let's check to see what the mouse is now over, and assign it to mouse_over_element...
+       if( event.toElement ) {
+          mouse_over_element = event.toElement;
+       }
+       else if(event.relatedTarget) {
+         mouse_over_element = event.relatedTarget;
+       }
+       //In the event that the mouse is over something outside the DOM (like an alert window)...
+       if(mouse_over_element == null) {
+          return;
+       }
+       //Now we just make sure that what the mouse is currently over is NOT a descendant of
+       //the dropdown, and that the target is not the current mouse_over_element (I can't
+       //remember which case this covers, but it's important)
+       if( target != mouse_over_element) {
+         this.showMenu = false;
+         console.log("off");
+       }
+
+
       },
       imagefailed: function(e){
         var elm = e.srcElement;

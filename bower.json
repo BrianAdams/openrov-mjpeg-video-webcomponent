@@ -25,6 +25,6 @@
     "example"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.3.5"
+    "polymer": "~0.3.5"
   }
 }
