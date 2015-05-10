@@ -19,9 +19,5 @@
   "dependencies": {
     "core-component-page": "Polymer/core-component-page#>=0.3.0 <1.0.0",
     "mjpeg-video-webcomponent": "../#~1.0.6"
-  },
-  "resolutions": {
-    "core-component-page": "^0.5",
-    "polymer": "^0.5"
   }
 }

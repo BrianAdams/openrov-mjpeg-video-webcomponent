@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="mjpeg-video" attributes="src novideoImageURL framespersecond fullscreenbtn" noscript>
+<polymer-element name="mjpeg-video" attributes="src novideoImageURL framespersecond fullscreenbtn">
 <script src="fullscreen-api-polyfill.js"></script>
   <template>
     <style>
@@ -21,7 +21,7 @@
   </template>
   <script>
   (function() {
-    Polymer('mjpeg-video', {
+    Polymer({
       // These default values are overridden
       // by the user's attribute values.
       src: "http://127.0.0.1:8090/?action=stream",
