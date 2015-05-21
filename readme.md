@@ -21,7 +21,7 @@ Installation
 ---------
 
 ```
-bower install mjpeg-video-webcomponent
+bower install mjpeg-video-webcomponents
 ```
 
 Usage
