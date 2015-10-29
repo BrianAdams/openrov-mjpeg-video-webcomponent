@@ -20,6 +20,11 @@
         display: block;
         width: 320px;
         height: 200px}
+
+      #video-canvas {
+        width: 100%;
+        height: 100%;
+      }
     </style>
   <template>
     <!--apply-author-styles></apply-author-styles-->
@@ -82,7 +87,8 @@
           src: {
             type: String,
             value: 'http://127.0.0.1:8090/?action=stream',
-            notify: true
+            notify: true,
+            observer: '_srcChanged'
           },
           srcImg: {
             type: String,
@@ -115,13 +121,17 @@
             var style = window.getComputedStyle(self.$['videocontainer'], null);
             var width = parseInt(style.getPropertyValue('width'));
             var height = parseInt(style.getPropertyValue('height'));
+            var proportionalHeight = width * srcImg.height / srcImg.width;
+
             self.canvas.width = width;
-            self.canvas.height = height;
+            self.canvas.height = proportionalHeight;
             var ctx = self.canvas.getContext('2d');
             ctx.fillRect(0, 0, self.canvas.width, self.canvas.height);
-            var proportionalHeight = width * srcImg.height / srcImg.width;
+
             try {
-              ctx.drawImage(srcImg, 0, (self.canvas.height - proportionalHeight) / 2, width, proportionalHeight);
+              //ctx.drawImage(srcImg, 0, (self.canvas.height - proportionalHeight) / 2, width, proportionalHeight);
+              ctx.drawImage(srcImg, 0, 0, width, proportionalHeight);
+
             } catch (err) {
               console.log(err.message);
               return refcallback(err);
@@ -205,6 +215,10 @@
            this.fire('fullscreen');
 
           //elm.requestFullscreen();
+        },
+        _srcChanged: function(){
+          this.set('$.video1.attributes.src.value', this.src);
+          this.set('$.video2.attributes.src.value', this.src);
         },
         // standard
         ready: function () {
