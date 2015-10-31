@@ -27,15 +27,16 @@
       }
     </style>
   <template>
-    <!--apply-author-styles></apply-author-styles-->
-    <div id="videocontainer" style="display:block; height:100%; width:100%; position: relative;" on-hover="">
+    <div id="videocontainer" style="display:block; height:100%; width:100%; position:relative;" on-hover="">
       <img hidden="true" id="video1" src="" on-load="imagefailed">
       <img hidden="true" id="video2" src="" on-load="imagefailed">
       <img id="videomissing" src="{{novideoImageURL}}" hidden$="{{isHidden}}">
-      <img id="fs_btn" on-click="fullscreen" style="position: absolute; height: 32px; width: 32px; bottom: 10px; right: 20px; opacity: .3; z-index: 999;" alt="FullScreen" src="{{fullscreenbtn}}" on-mouseenter="fs_onHovered" on-mouseleave="fs_onUnhovered" hidden$="{{!showMenu}}">
+      <img id="fs_btn" on-click="fullscreen" style="position:absolute; height: 32px; width: 32px; bottom: 10px; right: 20px; opacity: .3; z-index: 999;" alt="FullScreen" src="{{fullscreenbtn}}" on-mouseenter="fs_onHovered" on-mouseleave="fs_onUnhovered" hidden$="{{!showMenu}}">
       <canvas id="video-canvas" on-mouseenter="onHovered" on-mouseleave="onUnhovered" hidden$="{{!isHidden}}">
 
-    </canvas></div>
+      </canvas>
+      <content></content>
+      </div>
   </template>
   <script src="fullscreen-api-polyfill.js"></script>
   <script>
@@ -93,6 +94,10 @@
           srcImg: {
             type: String,
             value: ''
+          },
+          cors: {
+            type: Boolean,
+            value: false
           },
           styletodo: {
             type: String,
@@ -223,8 +228,15 @@
         // standard
         ready: function () {
           var self = this;
+          var distributed = this.getContentChildren('#myContent');
           this.canvas = this.$['video-canvas'];
-          this.set('$.video1.attributes.src.value', this.src);
+/*          if (this.cors){
+            var img = this.$.video1;
+            img.crossOrigin = 'Anonymous';
+            img = this.$.video2;
+            img.crossOrigin = 'Anonymous';
+          }
+  */        this.set('$.video1.attributes.src.value', this.src);
           this.set('$.video2.attributes.src.value', this.src);
           this.srcImg = this.$['video1'];
           this.videocontainer = this.$['videocontainer'];
