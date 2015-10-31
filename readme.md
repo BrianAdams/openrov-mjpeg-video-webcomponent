@@ -11,6 +11,7 @@ Features:
 * Loss of video stream detection
 * Fullscreen mode
 * 500%+ performance improvement over native browser < IMG> tag solution
+* Easy support for overlaying other html elements on top of the video
 
 Built on:
 
@@ -30,6 +31,14 @@ Usage
 ```
 <mjpeg-video src='<url of mjpeg stream>' style='width: 1280px; height:720px'></mjpeg-video>
 ```
+
+To insert text on the upper right of the video:
+```
+<mjpeg-video src='<url of mjpeg stream>' style='width: 1280px; height:720px'>
+<p style="position:absolute; top:0px; left:0px; z-index:2">Overlay Text!</p>
+</mjpeg-video>
+```
+
 
 Refer to the example/index.html file for detailes.
 
