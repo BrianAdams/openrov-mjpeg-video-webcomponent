@@ -226,7 +226,7 @@
           this.set('$.video2.attributes.src.value', this.src);
         },
         // standard
-        ready: function () {
+        attached: function () {
           var self = this;
           var distributed = this.getContentChildren('#myContent');
           this.canvas = this.$['video-canvas'];
